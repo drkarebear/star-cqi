@@ -16,7 +16,7 @@
       --green: #2E7D32;
       --green-dark: #205D25;
       --green-soft: #EDF8EE;
-      --coral: #D9533F;
+      --coral: #C44732;
       --coral-dark: #A93C2E;
       --coral-soft: #FFF0EC;
       --gold: #9A6500;
@@ -110,6 +110,15 @@
     .main-nav a[aria-current="page"] {
       color: var(--blue-dark);
       background: var(--blue-soft);
+    }
+
+    .help-link {
+      background: var(--blue);
+      color: #fff !important;
+    }
+
+    .help-link:hover {
+      background: var(--blue-dark) !important;
     }
 
     main {
@@ -292,6 +301,7 @@
         <a href="spring-reflection.html">Spring Reflection</a>
         <a href="cqi-resources.html">Resources</a>
         <a href="about.html">About</a>
+        <a class="help-link" href="cqi-resources.html#help">Need Help?</a>
       </nav>
     </div>
   </header>
@@ -353,11 +363,24 @@
       </p>
     </section>
 
+    <section class="section" aria-labelledby="playlab-heading">
+      <h2 id="playlab-heading">Interactive Action Plan Coach</h2>
+      <p>
+        The STAR SMART Action Plan Coach is provided through PlayLab and is embedded on this website.
+        When you use the coach, information you enter is processed through PlayLab rather than by this website.
+      </p>
+      <p>
+        Do not enter student names, confidential employee information, medical information, or other
+        sensitive personal information into the coach. Use program-level information whenever possible.
+      </p>
+    </section>
+
     <section class="section" aria-labelledby="official-heading">
       <h2 id="official-heading">Official submissions</h2>
       <p>
-        Required CQI forms and official submissions should be completed in the appropriate BTB or STAR
-        system. This support site does not receive or store those official submissions.
+        Required CQI forms and official submissions should be completed in the official BTB Portal,
+        an official BTB form, or an approved STAR system. This support site does not receive or store
+        those official submissions.
       </p>
 
       <div class="notice">
@@ -381,11 +404,14 @@
 
   <footer>
     <div class="footer-inner">
-      <p><strong>Maintained by Karen Crozer, STAR Development Office.</strong></p>
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="privacy.html" aria-current="page">Privacy</a>
-      </div>
+      <p>
+        <strong>Maintained by Karen Crozer, STAR Development Office.</strong><br>
+        This is a STAR support resource and is not an official Beyond the Bell website.
+      </p>
+      <p>
+        <a href="about.html">About This Site</a> &nbsp;•&nbsp;
+        <a href="privacy.html">Privacy</a>
+      </p>
     </div>
   </footer>
 </body>

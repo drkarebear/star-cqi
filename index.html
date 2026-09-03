@@ -18,7 +18,7 @@
       --green-dark: #205D25;
       --green-soft: #EDF8EE;
 
-      --coral: #D9533F;
+      --coral: #C44732;
       --coral-dark: #A93C2E;
       --coral-soft: #FFF0EC;
 
@@ -193,7 +193,7 @@
 
     .cycle-visual {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 12px;
       align-items: start;
       text-align: center;
@@ -218,13 +218,15 @@
 
     .cycle-step:nth-child(1) .cycle-icon { background: var(--green-soft); }
     .cycle-step:nth-child(2) .cycle-icon { background: var(--blue-soft); }
-    .cycle-step:nth-child(3) .cycle-icon { background: var(--coral-soft); }
-    .cycle-step:nth-child(4) .cycle-icon { background: var(--gold-soft); }
+    .cycle-step:nth-child(3) .cycle-icon { background: var(--gold-soft); }
+    .cycle-step:nth-child(4) .cycle-icon { background: var(--coral-soft); }
+    .cycle-step:nth-child(5) .cycle-icon { background: var(--green-soft); }
 
     .cycle-step:nth-child(1) span { color: var(--green-dark); }
     .cycle-step:nth-child(2) span { color: var(--blue-dark); }
-    .cycle-step:nth-child(3) span { color: var(--coral-dark); }
-    .cycle-step:nth-child(4) span { color: var(--gold); }
+    .cycle-step:nth-child(3) span { color: var(--gold); }
+    .cycle-step:nth-child(4) span { color: var(--coral-dark); }
+    .cycle-step:nth-child(5) span { color: var(--green-dark); }
 
     .section-heading {
       margin: 46px 0 20px;
@@ -525,6 +527,7 @@
         <a href="fall-action-plan.html">Fall Action Plan</a>
         <a href="spring-reflection.html">Spring Reflection</a>
         <a href="cqi-resources.html">Resources</a>
+        <a href="about.html">About</a>
         <a class="help-link" href="cqi-resources.html#help">Need Help?</a>
       </nav>
     </div>
@@ -543,55 +546,64 @@
         </p>
       </div>
 
-      <div class="cycle-visual" aria-label="CQI cycle: Learn, Plan, Reflect, Improve">
-        <div class="cycle-step">
-          <div class="cycle-icon" aria-hidden="true">
-            <svg viewBox="0 0 100 100" width="64" height="64" role="img">
-              <path d="M50 76V43" stroke="#2E7D32" stroke-width="7" stroke-linecap="round"/>
-              <path d="M47 49C26 47 18 32 20 18c18 1 31 9 33 28" fill="#72C758"/>
-              <path d="M53 48c20-2 30-13 31-29-18 0-31 8-35 26" fill="#46A846"/>
-              <ellipse cx="50" cy="80" rx="27" ry="9" fill="#7B4E2D"/>
-            </svg>
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px;">A simple way to think about CQI</p>
+        <div class="cycle-visual" aria-label="CQI in plain language: Learn, Plan, Try It, Reflect, Improve">
+          <div class="cycle-step">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" width="64" height="64">
+                <path d="M50 76V43" stroke="#2E7D32" stroke-width="7" stroke-linecap="round"/>
+                <path d="M47 49C26 47 18 32 20 18c18 1 31 9 33 28" fill="#72C758"/>
+                <path d="M53 48c20-2 30-13 31-29-18 0-31 8-35 26" fill="#46A846"/>
+                <ellipse cx="50" cy="80" rx="27" ry="9" fill="#7B4E2D"/>
+              </svg>
+            </div>
+            <span>Learn</span>
           </div>
-          <span>Learn</span>
-        </div>
 
-        <div class="cycle-step">
-          <div class="cycle-icon" aria-hidden="true">
-            <svg viewBox="0 0 100 100" width="64" height="64">
-              <rect x="24" y="19" width="51" height="66" rx="6" fill="#FFFFFF" stroke="#173B6C" stroke-width="6"/>
-              <rect x="38" y="12" width="23" height="12" rx="6" fill="#173B6C"/>
-              <path d="M34 38l5 5 9-10M34 53l5 5 9-10M34 68l5 5 9-10" fill="none" stroke="#2E7D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M61 69l16-16 8 8-16 16-11 3z" fill="#1769C2"/>
-            </svg>
+          <div class="cycle-step">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" width="64" height="64">
+                <rect x="24" y="19" width="51" height="66" rx="6" fill="#FFFFFF" stroke="#173B6C" stroke-width="6"/>
+                <rect x="38" y="12" width="23" height="12" rx="6" fill="#173B6C"/>
+                <path d="M34 38l5 5 9-10M34 53l5 5 9-10M34 68l5 5 9-10" fill="none" stroke="#2E7D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Plan</span>
           </div>
-          <span>Plan</span>
-        </div>
 
-        <div class="cycle-step">
-          <div class="cycle-icon" aria-hidden="true">
-            <svg viewBox="0 0 100 100" width="64" height="64">
-              <rect x="22" y="16" width="56" height="70" rx="8" fill="#F86E58"/>
-              <path d="M34 16v70" stroke="#B54334" stroke-width="4"/>
-              <circle cx="57" cy="45" r="13" fill="#FFD35C"/>
-              <circle cx="57" cy="45" r="7" fill="#F7A624"/>
-              <path d="M57 58v17M57 66c-8-8-13-6-16-3M57 67c8-8 13-6 16-3" fill="none" stroke="#2E7D32" stroke-width="5" stroke-linecap="round"/>
-            </svg>
+          <div class="cycle-step">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" width="64" height="64">
+                <path d="M50 13l9 22 24 2-18 15 6 24-21-13-21 13 6-24-18-15 24-2z" fill="#FFC43D" stroke="#9A6500" stroke-width="4"/>
+                <path d="M36 51l9 9 20-22" fill="none" stroke="#2E7D32" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Try It</span>
           </div>
-          <span>Reflect</span>
-        </div>
 
-        <div class="cycle-step">
-          <div class="cycle-icon" aria-hidden="true">
-            <svg viewBox="0 0 100 100" width="64" height="64">
-              <rect x="20" y="60" width="13" height="23" rx="2" fill="#1769C2"/>
-              <rect x="43" y="48" width="13" height="35" rx="2" fill="#4D9BE6"/>
-              <rect x="66" y="34" width="13" height="49" rx="2" fill="#59B34C"/>
-              <path d="M23 48c17-3 30-12 43-25" fill="none" stroke="#EAA800" stroke-width="6" stroke-linecap="round"/>
-              <path d="M65 17l4 9 10 1-8 7 2 10-8-5-9 5 3-10-8-7 10-1z" fill="#FFC43D"/>
-            </svg>
+          <div class="cycle-step">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" width="64" height="64">
+                <circle cx="43" cy="43" r="22" fill="none" stroke="#C44732" stroke-width="7"/>
+                <path d="M59 59l20 20" stroke="#C44732" stroke-width="8" stroke-linecap="round"/>
+                <path d="M33 43h20M43 33v20" stroke="#173B6C" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span>Reflect</span>
           </div>
-          <span>Improve</span>
+
+          <div class="cycle-step">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 100 100" width="64" height="64">
+                <rect x="20" y="60" width="13" height="23" rx="2" fill="#1769C2"/>
+                <rect x="43" y="48" width="13" height="35" rx="2" fill="#4D9BE6"/>
+                <rect x="66" y="34" width="13" height="49" rx="2" fill="#59B34C"/>
+                <path d="M23 48c17-3 30-12 43-25" fill="none" stroke="#EAA800" stroke-width="6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span>Improve</span>
+          </div>
         </div>
       </div>
     </section>
@@ -631,7 +643,7 @@
           </svg>
 
           <h3>I Need to Make My Fall Action Plan</h3>
-          <p>See the steps, use the STAR Action Plan Coach, and get ready to enter your final plan in the BTB portal.</p>
+          <p>See the steps, use the STAR Action Plan Coach, and get ready to enter your final plan in the BTB Portal.</p>
           <a class="button blue" href="fall-action-plan.html">
             Start My Fall Action Plan <span aria-hidden="true">→</span>
           </a>
@@ -668,7 +680,7 @@
         <article class="year-card">
           <h3>Fall: Make a plan and try it</h3>
           <p><strong>Action Plan due September 30, 2026.</strong></p>
-          <p>Review your feedback, choose a focus, create your Action Plan, enter it in the BTB system, and begin putting it into action.</p>
+          <p>Review your feedback, choose a focus, create your Action Plan, enter it in the BTB Portal, and begin putting it into action.</p>
           <p><a href="fall-action-plan.html">Go to Fall Action Plan help</a></p>
         </article>
 
@@ -683,7 +695,7 @@
     <section class="resources-band" aria-labelledby="resources-heading">
       <div>
         <h2 id="resources-heading">Looking for CQI resources?</h2>
-        <p>Find guides, examples, training materials, BTB resources, and other tools in one place.</p>
+        <p>Find guides, examples, required forms, BTB resources, and other CQI tools in one place.</p>
       </div>
       <a class="button gold" href="cqi-resources.html">
         View CQI Resources <span aria-hidden="true">→</span>
@@ -704,16 +716,20 @@
 
     <aside class="support-note" aria-label="Important submission reminder">
       <strong>Important:</strong> This site helps you understand and prepare your CQI work.
-      Required forms and submissions still need to be completed in the appropriate BTB system.
+      Required forms and submissions still need to be completed in the official BTB Portal.
     </aside>
   </main>
 
   <footer>
     <div class="footer-inner">
       <p>
-        This site is a support resource for STAR staff working on Beyond the Bell Continuous Quality Improvement.
+        <strong>Maintained by Karen Crozer, STAR Development Office.</strong><br>
+        This is a STAR support resource and is not an official Beyond the Bell website.
       </p>
-      <p><strong>Maintained by the STAR Development Team.</strong></p>
+      <p>
+        <a href="about.html">About This Site</a> &nbsp;•&nbsp;
+        <a href="privacy.html">Privacy</a>
+      </p>
     </div>
   </footer>
 </body>
