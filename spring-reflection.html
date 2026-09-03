@@ -1,1 +1,767 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spring Forms & Reflection | CQI at STAR</title>
+  <meta name="description" content="Simple step-by-step help for STAR Site Directors completing spring CQI forms and reflection requirements for Beyond the Bell.">
+  <link rel="icon" type="image/png" href="favicon7.png">
+
+  <style>
+    :root {
+      --navy: #173B6C;
+      --blue: #1769C2;
+      --blue-dark: #0F4F96;
+      --blue-soft: #EAF4FF;
+
+      --green: #2E7D32;
+      --green-dark: #205D25;
+      --green-soft: #EDF8EE;
+
+      --coral: #D9533F;
+      --coral-dark: #A93C2E;
+      --coral-soft: #FFF0EC;
+
+      --gold: #9A6500;
+      --gold-soft: #FFF7DE;
+
+      --ink: #1F2937;
+      --muted: #556273;
+      --line: #D8E1EA;
+      --page: #F7FAFC;
+      --surface: #FFFFFF;
+
+      --radius-lg: 22px;
+      --shadow: 0 10px 28px rgba(23, 59, 108, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--page);
+      line-height: 1.6;
+    }
+
+    a { color: var(--blue-dark); }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 4px solid #111827;
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      z-index: 1000;
+      padding: 10px 14px;
+      background: #111827;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .site-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      font-weight: 700;
+      padding: 9px 11px;
+      border-radius: 10px;
+      color: var(--ink);
+    }
+
+    .main-nav a:hover { background: #F0F4F8; }
+
+    .main-nav a[aria-current="page"] {
+      color: var(--coral-dark);
+      background: var(--coral-soft);
+    }
+
+    .help-link {
+      background: var(--blue);
+      color: #fff !important;
+    }
+
+    .help-link:hover { background: var(--blue-dark) !important; }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 22px 72px;
+    }
+
+    .hero {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--coral-dark);
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.18;
+      color: var(--navy);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.3rem, 5vw, 3.9rem);
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 690px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-icon {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      background: var(--coral-soft);
+      display: grid;
+      place-items: center;
+    }
+
+    .plain-box {
+      margin-top: 24px;
+      background: var(--green-soft);
+      border: 2px solid #B9DDBC;
+      border-radius: 18px;
+      padding: 20px 22px;
+    }
+
+    .plain-box strong { color: var(--green-dark); }
+
+    .section-heading {
+      margin: 46px 0 18px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 7px;
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .prep-steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .prep-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .prep-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .prep-step h3 {
+      margin: 1px 0 5px;
+      font-size: 1.18rem;
+    }
+
+    .prep-step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .forms-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-left: 7px solid;
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .form-card.jan { border-left-color: var(--blue); }
+    .form-card.feb { border-left-color: var(--green); }
+    .form-card.apr { border-left-color: var(--coral); }
+    .form-card.may { border-left-color: #C88700; }
+
+    .form-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .date-badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-weight: 900;
+      font-size: .94rem;
+      white-space: nowrap;
+    }
+
+    .jan .date-badge { background: var(--blue-soft); color: var(--blue-dark); }
+    .feb .date-badge { background: var(--green-soft); color: var(--green-dark); }
+    .apr .date-badge { background: var(--coral-soft); color: var(--coral-dark); }
+    .may .date-badge { background: var(--gold-soft); color: #6D4800; }
+
+    .form-card h3 {
+      margin: 10px 0 8px;
+      font-size: 1.42rem;
+    }
+
+    .form-card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .submit-note {
+      background: #F8FAFC;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 14px;
+      margin: 12px 0 16px;
+      color: #39475A;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 2px solid transparent;
+    }
+
+    .button.blue { background: var(--blue); color: #fff; }
+    .button.green { background: var(--green); color: #fff; }
+    .button.coral { background: var(--coral); color: #fff; }
+    .button.gold { background: #F0B429; color: #3E2A00; }
+    .button.white { background: #fff; color: var(--navy); border-color: #B9C7D5; }
+
+    .button.blue:hover { background: var(--blue-dark); }
+    .button.green:hover { background: var(--green-dark); }
+    .button.coral:hover { background: var(--coral-dark); }
+    .button.gold:hover { background: #D59D17; }
+    .button.white:hover { background: #F4F7FA; }
+
+    .evidence-box {
+      background: var(--gold-soft);
+      border: 2px solid #E8CB7A;
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .evidence-box h2 {
+      margin: 0 0 8px;
+      font-size: 1.6rem;
+    }
+
+    .evidence-box p { margin: 0 0 14px; }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 18px;
+      margin-top: 14px;
+    }
+
+    .evidence-item {
+      background: #fff;
+      border: 1px solid #E9D9A7;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .tip-box {
+      margin-top: 16px;
+      background: #fff;
+      border-left: 5px solid #C88700;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .reflection-questions {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .reflection-questions ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .reflection-questions li + li { margin-top: 10px; }
+
+    .team-box {
+      background: linear-gradient(135deg, #EDF8EE 0%, #EAF4FF 100%);
+      border: 2px solid #B9DDBC;
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .team-box h2 {
+      margin: 0 0 8px;
+      font-size: 1.6rem;
+    }
+
+    .team-box p {
+      margin: 0 0 12px;
+      color: #374151;
+    }
+
+    .team-box ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .finish {
+      margin-top: 34px;
+      background: var(--coral-soft);
+      border: 2px solid #F0C1B8;
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .finish h2 {
+      margin: 0 0 8px;
+      font-size: 1.6rem;
+    }
+
+    .finish p {
+      margin: 0 0 14px;
+      color: #374151;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .support-note {
+      margin-top: 26px;
+      border-left: 5px solid var(--blue);
+      background: var(--blue-soft);
+      padding: 18px 20px;
+      border-radius: 12px;
+      color: #334155;
+    }
+
+    footer {
+      background: #EAF4FF;
+      border-top: 1px solid #C9DDF2;
+      color: #334155;
+    }
+
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: .96rem;
+    }
+
+    .footer-inner p { margin: 0; max-width: 700px; }
+
+    @media (max-width: 820px) {
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .main-nav { justify-content: flex-start; }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-icon { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      main {
+        padding: 24px 14px 52px;
+      }
+
+      .hero { padding: 24px 20px; }
+
+      .prep-step {
+        grid-template-columns: 1fr;
+      }
+
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="index.html" aria-label="CQI at STAR home">CQI at STAR</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="new-to-cqi.html">New to CQI</a>
+        <a href="fall-action-plan.html">Fall Action Plan</a>
+        <a href="spring-reflection.html" aria-current="page">Spring Reflection</a>
+        <a href="cqi-resources.html">Resources</a>
+        <a class="help-link" href="cqi-resources.html#help">Need Help?</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Spring CQI</p>
+        <h1 id="page-title">Complete Your Spring Forms &amp; Reflection</h1>
+        <p>
+          Spring is when you look back at the Action Plan you made in fall.
+          What did you try? What happened? What worked? What should change next time?
+        </p>
+      </div>
+
+      <div class="hero-icon" aria-hidden="true">
+        <svg viewBox="0 0 100 100" width="80" height="80">
+          <circle cx="50" cy="35" r="11" fill="#FFD35C"/>
+          <circle cx="50" cy="17" r="14" fill="#F86E58"/>
+          <circle cx="68" cy="35" r="14" fill="#FF826F"/>
+          <circle cx="50" cy="53" r="14" fill="#F86E58"/>
+          <circle cx="32" cy="35" r="14" fill="#FF826F"/>
+          <path d="M50 55v30M50 70c-11-10-19-7-23-2M50 72c11-10 19-7 23-2" fill="none" stroke="#2E7D32" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <div class="plain-box">
+      <strong>Spring reflection is more than filling out a form.</strong>
+      Start by looking at your original Action Plan and talking with your team about what actually happened.
+      Then use what you learned to complete the required spring forms.
+    </div>
+
+    <section aria-labelledby="prepare-heading">
+      <div class="section-heading">
+        <h2 id="prepare-heading">Before you start your spring forms</h2>
+        <p>You do not need to remember the whole year. Gather a few things first.</p>
+      </div>
+
+      <div class="prep-steps">
+        <article class="prep-step">
+          <div class="prep-number">1</div>
+          <div>
+            <h3>Find your original Action Plan</h3>
+            <p>Look at the goal and action steps your site wrote in fall.</p>
+          </div>
+        </article>
+
+        <article class="prep-step">
+          <div class="prep-number">2</div>
+          <div>
+            <h3>Look at what actually happened</h3>
+            <p>Which action steps were completed? Which were partly completed? Did anything change along the way?</p>
+          </div>
+        </article>
+
+        <article class="prep-step">
+          <div class="prep-number">3</div>
+          <div>
+            <h3>Gather a few examples</h3>
+            <p>Collect simple evidence that shows what your team did and what changed.</p>
+          </div>
+        </article>
+
+        <article class="prep-step">
+          <div class="prep-number">4</div>
+          <div>
+            <h3>Talk with your team</h3>
+            <p>Reflection should include the people who experienced the work, not just one person completing the portal.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="forms-heading">
+      <div class="section-heading">
+        <h2 id="forms-heading">Your required spring forms</h2>
+        <p>Use the cards below to see what is due and where the documentation belongs.</p>
+      </div>
+
+      <div class="forms-grid">
+        <article class="form-card jan">
+          <div class="form-top">
+            <div>
+              <span class="date-badge">Due January 31</span>
+              <h3>Midyear Action Plan Review</h3>
+            </div>
+          </div>
+
+          <p>Use this review to document your site’s progress, challenges, and any adjustments you are making midway through the year.</p>
+
+          <div class="submit-note">
+            <strong>What to submit:</strong> Complete the review and upload the site reflection under
+            <strong>“Meeting Agenda or Minutes.”</strong>
+          </div>
+
+          <a class="button blue" href="https://form.jotform.com/Starinc/midyear-action-plan-review">
+            Complete the Midyear Action Plan Review <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="form-card feb">
+          <div class="form-top">
+            <div>
+              <span class="date-badge">Due February 28</span>
+              <h3>Annual Program Evaluation Report</h3>
+            </div>
+          </div>
+
+          <p>Use this report to look at overall program implementation, quality, and progress toward program goals.</p>
+
+          <div class="submit-note">
+            <strong>What to submit:</strong> Complete the report and upload the required documentation under
+            <strong>“Program Evaluation Report.”</strong>
+          </div>
+
+          <a class="button green" href="https://form.jotform.com/Starinc/program-evaluation-report">
+            Complete the Annual Program Evaluation Report <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="form-card apr">
+          <div class="form-top">
+            <div>
+              <span class="date-badge">Due April 30</span>
+              <h3>End-of-Year Action Plan Review</h3>
+            </div>
+          </div>
+
+          <p>Use this review to show what improvements were completed and what changed because of your Action Plan.</p>
+
+          <div class="submit-note">
+            <strong>What to submit:</strong> Complete the review and upload the site reflection under
+            <strong>“Documentation showing evidence of program improvements made.”</strong>
+          </div>
+
+          <a class="button coral" href="https://form.jotform.com/Starinc/end-of-year-action-plan-review">
+            Complete the End-of-Year Action Plan Review <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="form-card may">
+          <div class="form-top">
+            <div>
+              <span class="date-badge">Due May 31</span>
+              <h3>End-of-Year Principal Log + Program Plan Addendum</h3>
+            </div>
+          </div>
+
+          <p>Use this form to document school partnership, principal communication, and planning for the upcoming program year.</p>
+
+          <div class="submit-note">
+            <strong>Why it matters:</strong> This information is used to help build Program Plan Addenda and Start-Up Agreements.
+          </div>
+
+          <a class="button gold" href="https://form.jotform.com/Starinc/end-of-year-principal-log">
+            Complete the End-of-Year Principal Log <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="evidence-heading">
+      <div class="section-heading">
+        <h2 id="evidence-heading">What counts as documentation?</h2>
+        <p>Documentation is simply evidence that shows what your team did and what happened.</p>
+      </div>
+
+      <div class="evidence-box">
+        <h2>You do not need a huge pile of files.</h2>
+        <p>
+          A clear example for each action step is usually more useful than uploading many documents.
+          Choose evidence that helps show the outcome of the action.
+        </p>
+
+        <div class="evidence-grid">
+          <div class="evidence-item">Meeting agendas or notes</div>
+          <div class="evidence-item">Survey summaries</div>
+          <div class="evidence-item">Student feedback</div>
+          <div class="evidence-item">Photos or flyers</div>
+          <div class="evidence-item">Revised activity plans</div>
+          <div class="evidence-item">Examples of changes made</div>
+        </div>
+
+        <div class="tip-box">
+          <strong>Simple rule:</strong> Ask, “Does this help show that our action step happened or that something changed?”
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="questions-heading">
+      <div class="section-heading">
+        <h2 id="questions-heading">Questions to ask during your reflection</h2>
+        <p>Use these to guide a short conversation with your team before entering anything into the portal.</p>
+      </div>
+
+      <div class="reflection-questions">
+        <ul>
+          <li>What did we say we were going to do?</li>
+          <li>What did we actually do?</li>
+          <li>What worked well?</li>
+          <li>What was difficult or did not happen as planned?</li>
+          <li>What did students, staff, or families tell us?</li>
+          <li>What evidence do we have?</li>
+          <li>What should we keep doing?</li>
+          <li>What should we change next time?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="team-heading">
+      <div class="section-heading">
+        <h2 id="team-heading">Who should be part of the reflection?</h2>
+        <p>Spring reflection should be a shared conversation whenever possible.</p>
+      </div>
+
+      <div class="team-box">
+        <h2>For Point-of-Service Action Plans, Site Leads guide the reflection.</h2>
+        <p>Try to include input from:</p>
+        <ul>
+          <li>Site staff and coaches</li>
+          <li>Students</li>
+          <li>Families, when possible</li>
+          <li>The principal or site administrator</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="finish" aria-labelledby="finish-heading">
+      <h2 id="finish-heading">Finished with your spring reflection?</h2>
+      <p>
+        Keep a copy of your final forms and documentation. What you learn this spring can help
+        your site make a stronger Action Plan next fall.
+      </p>
+
+      <div class="button-row">
+        <a class="button coral" href="cqi-resources.html">
+          View Spring CQI Resources
+        </a>
+        <a class="button white" href="fall-action-plan.html">
+          Review the Fall Action Plan Process
+        </a>
+      </div>
+    </section>
+
+    <aside class="support-note" aria-label="Need help">
+      <strong>Need help?</strong> Talk with your Cluster Lead or visit the
+      <a href="cqi-resources.html#help">CQI help and resources</a> section.
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>
+        This site is a support resource for STAR staff working on Beyond the Bell Continuous Quality Improvement.
+        Required forms and submissions must still be completed in the appropriate BTB system.
+      </p>
+      <p><strong>Maintained by the STAR Development Team.</strong></p>
+    </div>
+  </footer>
+</body>
+</html>
