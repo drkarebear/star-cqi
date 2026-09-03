@@ -5,6 +5,7 @@ Core pages:
 - new-to-cqi.html
 - fall-action-plan.html
 - action-plan-coach.html
+- smart-goal-help.html (examples, common revisions, action-step help, and 12-question browser-based practice)
 - spring-reflection.html
 - cqi-resources.html
 - about.html
@@ -21,3 +22,4 @@ Important notes:
 - Official CQI forms and required submissions must still be completed through the official BTB forms and BTB Portal.
 - The detailed STAR Step-by-Step Action Plan Guide is linked from the Fall Action Plan page and is restricted to users signed into an authorized STAR Inc. Google account.
 - The internal STAR and BTB training slide decks are intentionally not included in this public website package.
+- The SMART Goal practice runs locally in the browser and does not save or send answers.

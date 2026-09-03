@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -403,6 +402,222 @@
     .button.green:hover { background: var(--green-dark); }
     .button.white:hover { background: #F4F7FA; }
 
+
+    /* Interactive SMART Goal practice */
+    .practice-shell {
+      margin-top: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .practice-intro {
+      padding: 24px;
+      background: linear-gradient(135deg, #F4F8FD 0%, #EEF7EF 100%);
+    }
+
+    .practice-intro h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+    }
+
+    .practice-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .practice-mini {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .practice-mini strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--navy);
+    }
+
+    .practice-rule {
+      border-left: 5px solid #E0A627;
+      background: var(--gold-soft);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin: 16px 0;
+    }
+
+    .practice-card {
+      padding: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .practice-kicker {
+      margin: 0 0 4px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--blue-dark);
+      font-weight: 900;
+      font-size: .82rem;
+    }
+
+    .practice-progress-shell {
+      background: #DDE5EF;
+      height: 14px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 12px 0 4px;
+    }
+
+    .practice-progress {
+      height: 100%;
+      width: 0;
+      background: var(--blue);
+      transition: width .2s ease;
+    }
+
+    .practice-progress-text {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .95rem;
+    }
+
+    .practice-fieldset {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .practice-fieldset legend {
+      font-weight: 800;
+      font-size: 1.06rem;
+      margin-bottom: 10px;
+      color: var(--navy);
+    }
+
+    .practice-scenario {
+      font-size: 1.08rem;
+      font-weight: 700;
+      padding: 16px;
+      background: #F6F8FB;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin: 8px 0 16px;
+    }
+
+    .practice-choices {
+      display: grid;
+      gap: 10px;
+    }
+
+    .practice-choice {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border: 2px solid #C8D1DF;
+      border-radius: 12px;
+      padding: 13px;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .practice-choice:hover { border-color: #8FA1B8; }
+    .practice-choice:focus-within {
+      outline: 4px solid #111827;
+      outline-offset: 3px;
+    }
+    .practice-choice input {
+      margin-top: .25rem;
+      transform: scale(1.18);
+    }
+
+    .practice-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .practice-button {
+      min-height: 46px;
+      border: 0;
+      border-radius: 12px;
+      padding: 11px 16px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .practice-button.primary { background: var(--blue); color: #fff; }
+    .practice-button.primary:hover { background: var(--blue-dark); }
+    .practice-button.secondary { background: #E9EEF5; color: var(--ink); }
+    .practice-button.secondary:hover { background: #DCE4EE; }
+
+    .practice-feedback {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 650;
+    }
+
+    .practice-feedback.good {
+      color: #0E4B31;
+      background: var(--green-soft);
+      border: 1px solid #8BC5A8;
+    }
+
+    .practice-feedback.bad {
+      color: #6C1C1C;
+      background: var(--coral-soft);
+      border: 1px solid #E1A3A3;
+    }
+
+    .practice-hidden { display: none !important; }
+
+    .practice-completion {
+      text-align: center;
+      padding: 30px 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .practice-checkmark {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      background: var(--green-soft);
+      border: 4px solid var(--green);
+      color: var(--green);
+      font-size: 2.4rem;
+      font-weight: 900;
+    }
+
+    .practice-score {
+      font-size: 1.18rem;
+      font-weight: 900;
+      margin: 10px 0;
+    }
+
+    .practice-takeaways {
+      text-align: left;
+      max-width: 720px;
+      margin: 20px auto;
+      padding: 16px 20px;
+      background: var(--blue-soft);
+      border-radius: 14px;
+      border: 1px solid #AAC9EB;
+    }
+
+    .practice-takeaways h3 { margin-top: 0; }
+    .practice-takeaways li + li { margin-top: 8px; }
+    .practice-small { font-size: .92rem; color: var(--muted); }
+
     .support-note {
       margin-top: 28px;
       border-left: 5px solid var(--blue);
@@ -434,7 +649,7 @@
     @media (max-width: 820px) {
       .header-inner { align-items: flex-start; flex-direction: column; }
       .main-nav { justify-content: flex-start; }
-      .two-column, .revision-grid { grid-template-columns: 1fr; }
+      .two-column, .revision-grid, .practice-mini-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 680px) {
@@ -443,6 +658,8 @@
       .category-header, summary { padding-left: 18px; padding-right: 18px; }
       .model-goal { margin-left: 18px; margin-right: 18px; }
       details ul { padding-left: 36px; padding-right: 20px; }
+      .practice-intro, .practice-card, .practice-completion { padding: 20px 18px; }
+      .practice-actions .practice-button { width: 100%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -498,6 +715,7 @@
         <a href="#ideas">I need an idea</a>
         <a href="#goal-check">My goal may need revision</a>
         <a href="#action-steps">My action steps are vague</a>
+        <a href="#practice">I want to practice</a>
         <a href="#final-check">I want a final check</a>
       </div>
     </nav>
@@ -767,6 +985,95 @@
       </div>
     </section>
 
+
+    <section id="practice" aria-labelledby="practice-heading">
+      <div class="section-heading">
+        <h2 id="practice-heading">Try It: Is It SMART Enough?</h2>
+        <p>Use this short practice to spot common problems before you enter your real Action Plan in the BTB Portal.</p>
+      </div>
+
+      <div class="practice-shell">
+        <div id="practice-intro" class="practice-intro">
+          <h3>Before You Start</h3>
+          <p>Your STAR plan should tell <strong>one clear story</strong>: two required standards, one SMART goal, and 3–5 specific action steps.</p>
+
+          <div class="practice-mini-grid">
+            <div class="practice-mini">
+              <strong>Choose only these two standards</strong>
+              Safe &amp; Supportive Environment (SSE) + Youth Voice &amp; Leadership (YVL)
+            </div>
+            <div class="practice-mini">
+              <strong>Write one SMART goal</strong>
+              The goal should describe the improvement you want to achieve and connect both standards.
+            </div>
+            <div class="practice-mini">
+              <strong>Add 3–5 action steps</strong>
+              Action steps describe what people will actually do to reach the goal.
+            </div>
+            <div class="practice-mini">
+              <strong>Answer portal questions literally</strong>
+              If BTB asks what support you need from BTB, say what support you need from BTB.
+            </div>
+          </div>
+
+          <div class="practice-rule">
+            <strong>Keep the timeframes straight:</strong> Your SMART goal should include a clear timeframe. The BTB Action Steps table also has a separate <strong>Completion Date</strong> field for the deadline or milestone for each individual action step.
+          </div>
+
+          <p>This activity has <strong>12 quick questions</strong> and usually takes about 5–7 minutes.</p>
+          <button class="practice-button primary" id="practice-start" type="button">Start the Practice</button>
+        </div>
+
+        <div id="practice-game" class="practice-hidden" aria-labelledby="practice-question-title">
+          <div class="practice-card">
+            <p class="practice-kicker" id="practice-round">Round 1</p>
+            <h3 id="practice-question-title" tabindex="-1">Question</h3>
+            <div class="practice-progress-shell" aria-hidden="true"><div id="practice-progress" class="practice-progress"></div></div>
+            <div class="practice-progress-text" id="practice-progress-text" aria-live="polite"></div>
+          </div>
+
+          <div class="practice-card">
+            <form id="practice-form">
+              <fieldset class="practice-fieldset">
+                <legend id="practice-prompt"></legend>
+                <div class="practice-scenario" id="practice-scenario"></div>
+                <div class="practice-choices" id="practice-choices"></div>
+              </fieldset>
+              <div class="practice-actions">
+                <button class="practice-button primary" id="practice-check" type="submit">Check My Answer</button>
+                <button class="practice-button secondary practice-hidden" id="practice-next" type="button">Next Question</button>
+              </div>
+              <div id="practice-feedback" class="practice-feedback practice-hidden" aria-live="assertive"></div>
+            </form>
+          </div>
+        </div>
+
+        <div id="practice-done" class="practice-completion practice-hidden" aria-labelledby="practice-done-title">
+          <div class="practice-checkmark" aria-hidden="true">✓</div>
+          <h3 id="practice-done-title" tabindex="-1">You Did It!</h3>
+          <p>You finished the STAR SMART Goal practice.</p>
+          <p class="practice-score" id="practice-score"></p>
+
+          <div class="practice-takeaways">
+            <h3>Five Things to Remember in BTB</h3>
+            <ol>
+              <li>Select <strong>only SSE + YVL</strong>.</li>
+              <li>Write <strong>one SMART goal</strong> that connects both standards.</li>
+              <li>Add <strong>3–5 specific action steps</strong> that clearly move the goal forward.</li>
+              <li>Make each step observable: someone should be able to ask, <strong>“Did this happen?”</strong></li>
+              <li>Make the whole plan tell one story: <strong>Data → Standards → Goal → Steps → Person → Timeline → Resources → Evidence</strong>.</li>
+            </ol>
+          </div>
+
+          <p><strong>Ready for the real thing?</strong> Use your site feedback and student voice to choose a goal that fits your program.</p>
+          <div class="practice-actions" style="justify-content:center">
+            <button class="practice-button primary" id="practice-restart" type="button">Practice Again</button>
+          </div>
+          <p class="practice-small">This practice runs only in your browser. It does not save or send your answers.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="final-check" aria-labelledby="final-check-heading">
       <div class="section-heading">
         <h2 id="final-check-heading">10-second check before you move on</h2>
@@ -810,5 +1117,239 @@
       </p>
     </div>
   </footer>
+
+  <script>
+  (() => {
+    const questions = [
+      {
+        round: "Round 1: SMART-Ready or Too Vague?",
+        prompt: "Is this goal SMART-ready for the BTB portal?",
+        scenario: "Improve student voice and make the program more welcoming.",
+        choices: ["SMART-ready", "Too vague"],
+        answer: 1,
+        feedback: "This is a good direction, but it is too broad. It does not say what will improve, how progress will be measured, or when the improvement should happen."
+      },
+      {
+        round: "Round 1: SMART-Ready or Too Vague?",
+        prompt: "Is this goal SMART-ready for the BTB portal?",
+        scenario: "By May 2027, students will have regular opportunities to influence program decisions, with at least one structured feedback opportunity each month and at least four documented program improvements based on student input.",
+        choices: ["SMART-ready", "Too vague"],
+        answer: 0,
+        feedback: "Yes. It describes the intended improvement, includes measurable indicators and a timeframe, and connects student voice with a more responsive and supportive program environment."
+      },
+      {
+        round: "Round 1: SMART-Ready or Too Vague?",
+        prompt: "Is this goal SMART-ready for the BTB portal?",
+        scenario: "Students will feel safer, more included, and more empowered.",
+        choices: ["SMART-ready", "Too vague"],
+        answer: 1,
+        feedback: "Too vague. This describes a hoped-for result, but it does not explain how progress will be measured or when the change should happen."
+      },
+      {
+        round: "Round 1: SMART-Ready or Too Vague?",
+        prompt: "Is this goal SMART-ready for the BTB portal?",
+        scenario: "By May 2027, students will take regular leadership roles in planning and leading activities in ways that strengthen student voice, belonging, respect, and shared responsibility, with at least two documented leadership opportunities each month.",
+        choices: ["SMART-ready", "Too vague"],
+        answer: 0,
+        feedback: "Yes. The goal connects both standards, identifies the improvement, includes a measurable indicator, and gives a clear timeframe."
+      },
+      {
+        round: "Round 2: Goal or Action Step?",
+        prompt: "Where does this belong in the plan?",
+        scenario: "Create a student suggestion box and review it with staff every month.",
+        choices: ["SMART Goal field", "Action Steps section"],
+        answer: 1,
+        feedback: "This is an action step. It explains something staff will do to help achieve the larger improvement goal."
+      },
+      {
+        round: "Round 2: Goal or Action Step?",
+        prompt: "Where does this belong in the plan?",
+        scenario: "By May 2027, students will have regular opportunities to share concerns and influence program improvements, with at least one documented student-informed response or change each quarter.",
+        choices: ["SMART Goal field", "Action Steps section"],
+        answer: 0,
+        feedback: "This works as the SMART goal because it describes the improvement the site wants to achieve and how progress will be demonstrated. The action steps would explain how the site gathers feedback, reviews it, and responds."
+      },
+      {
+        round: "Round 2: Goal or Action Step?",
+        prompt: "Where does this belong in the plan?",
+        scenario: "Student Council",
+        choices: ["SMART Goal field", "Action Steps section", "Neither — it is only a label"],
+        answer: 2,
+        feedback: "Exactly. “Student Council” is a topic or program label. Turn it into an action, such as: “Establish a student leadership team that meets once each month.”"
+      },
+      {
+        round: "Round 3: Build One Coherent Plan",
+        prompt: "Which action step best supports this goal?",
+        scenario: "Goal: By May 2027, students will have regular opportunities to influence program decisions, with at least one documented student-informed improvement each quarter.",
+        choices: [
+          "Promote the program to increase enrollment.",
+          "Create a short feedback-circle question set and schedule one student feedback circle each month.",
+          "Buy new sports equipment."
+        ],
+        answer: 1,
+        feedback: "Right. The action step directly helps the site carry out the goal. Every action step should clearly connect back to the SMART goal."
+      },
+      {
+        round: "Round 3: Build One Coherent Plan",
+        prompt: "Which plan setup follows STAR's current BTB expectations?",
+        scenario: "Choose the strongest setup.",
+        choices: [
+          "4 standards + 3 goals + 8 action steps",
+          "SSE + YVL + 1 shared SMART goal + 3–5 related action steps",
+          "SSE only + 1 goal + 2 action steps"
+        ],
+        answer: 1,
+        feedback: "Correct. Select only Safe & Supportive Environment and Youth Voice & Leadership, write one shared SMART goal, and include 3–5 specific action steps."
+      },
+      {
+        round: "Round 4: Portal Reality Check",
+        prompt: "BTB asks: “Suggested support needed from Beyond the Bell.” Which answer fits the question?",
+        scenario: "Choose the best response.",
+        choices: [
+          "We will hold student meetings and create a student council.",
+          "Training on student-led discussion strategies and a sample student survey template.",
+          "Improve student voice and leadership."
+        ],
+        answer: 1,
+        feedback: "Yes. That field is asking what support you need FROM BTB, such as training, resources, templates, coaching, technical assistance, or guidance."
+      },
+      {
+        round: "Round 4: Portal Reality Check",
+        prompt: "Which action step is easiest to verify later?",
+        scenario: "Choose the strongest action step.",
+        choices: [
+          "Improve student voice.",
+          "Support leadership.",
+          "Hold one student advisory meeting each month and record attendance and recommendations."
+        ],
+        answer: 2,
+        feedback: "Correct. Someone can later check whether the meeting happened and review evidence. Strong action steps make “Did this happen?” easy to answer."
+      },
+      {
+        round: "Round 4: Portal Reality Check",
+        prompt: "Which completion date makes sense for a 2026–27 action plan?",
+        scenario: "The site plans to complete a student-led program review during the school year.",
+        choices: [
+          "June 2026",
+          "A date or milestone during the 2026–27 plan year",
+          "Always choose “Ongoing,” no matter what"
+        ],
+        answer: 1,
+        feedback: "Exactly. Dates should fit the 2026–27 plan. Use “Ongoing” only when it truly makes sense; otherwise, give a meaningful deadline or milestone."
+      }
+    ];
+
+    let index = 0;
+    let score = 0;
+    let locked = false;
+
+    const intro = document.getElementById("practice-intro");
+    const game = document.getElementById("practice-game");
+    const done = document.getElementById("practice-done");
+    const startBtn = document.getElementById("practice-start");
+    const form = document.getElementById("practice-form");
+    const promptEl = document.getElementById("practice-prompt");
+    const scenarioEl = document.getElementById("practice-scenario");
+    const choicesEl = document.getElementById("practice-choices");
+    const feedbackEl = document.getElementById("practice-feedback");
+    const nextBtn = document.getElementById("practice-next");
+    const checkBtn = document.getElementById("practice-check");
+    const progress = document.getElementById("practice-progress");
+    const progressText = document.getElementById("practice-progress-text");
+    const roundLabel = document.getElementById("practice-round");
+    const questionTitle = document.getElementById("practice-question-title");
+    const scoreText = document.getElementById("practice-score");
+    const restartBtn = document.getElementById("practice-restart");
+
+    function renderQuestion() {
+      locked = false;
+      feedbackEl.className = "practice-feedback practice-hidden";
+      feedbackEl.textContent = "";
+      nextBtn.classList.add("practice-hidden");
+      checkBtn.classList.remove("practice-hidden");
+      const q = questions[index];
+      roundLabel.textContent = q.round;
+      questionTitle.textContent = `Question ${index + 1}`;
+      promptEl.textContent = q.prompt;
+      scenarioEl.textContent = q.scenario;
+      choicesEl.innerHTML = "";
+
+      q.choices.forEach((choice, i) => {
+        const label = document.createElement("label");
+        label.className = "practice-choice";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "practice-answer";
+        input.value = i;
+        input.required = true;
+        const span = document.createElement("span");
+        span.textContent = choice;
+        label.append(input, span);
+        choicesEl.appendChild(label);
+      });
+
+      const pct = (index / questions.length) * 100;
+      progress.style.width = `${pct}%`;
+      progressText.textContent = `Question ${index + 1} of ${questions.length}`;
+      questionTitle.focus();
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (locked) return;
+      const selected = form.querySelector('input[name="practice-answer"]:checked');
+      if (!selected) return;
+      locked = true;
+      const q = questions[index];
+      const chosen = Number(selected.value);
+      const correct = chosen === q.answer;
+      if (correct) score++;
+      feedbackEl.className = `practice-feedback ${correct ? "good" : "bad"}`;
+      feedbackEl.innerHTML = `<strong>${correct ? "Correct." : "Not quite."}</strong> ${q.feedback}`;
+      checkBtn.classList.add("practice-hidden");
+      nextBtn.classList.remove("practice-hidden");
+      form.querySelectorAll('input[name="practice-answer"]').forEach((radio) => { radio.disabled = true; });
+      nextBtn.focus();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      index++;
+      if (index < questions.length) {
+        renderQuestion();
+        game.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        finish();
+      }
+    });
+
+    function finish() {
+      game.classList.add("practice-hidden");
+      done.classList.remove("practice-hidden");
+      progress.style.width = "100%";
+      const pct = Math.round((score / questions.length) * 100);
+      let message = "";
+      if (pct >= 90) message = "You’re ready to spot the big action-plan issues.";
+      else if (pct >= 70) message = "Strong work. A quick review of the takeaways below will lock it in.";
+      else message = "You finished. Review the five takeaways below, then try it once more if you want extra practice.";
+      scoreText.textContent = `${score} of ${questions.length} correct (${pct}%). ${message}`;
+      done.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("practice-done-title").focus();
+    }
+
+    function startGame() {
+      index = 0;
+      score = 0;
+      intro.classList.add("practice-hidden");
+      done.classList.add("practice-hidden");
+      game.classList.remove("practice-hidden");
+      renderQuestion();
+      game.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    startBtn.addEventListener("click", startGame);
+    restartBtn.addEventListener("click", startGame);
+  })();
+  </script>
+
 </body>
 </html>
