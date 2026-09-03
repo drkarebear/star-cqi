@@ -1,1 +1,814 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMART Goal & Action Step Examples | CQI at STAR</title>
+  <meta name="description" content="Plain-language examples to help STAR staff write one SMART goal addressing Safe & Supportive Environment and Youth Voice & Leadership, plus 3–5 specific action steps.">
+  <link rel="icon" type="image/png" href="favicon7.png">
+
+  <style>
+    :root {
+      --navy: #173B6C;
+      --blue: #1769C2;
+      --blue-dark: #0F4F96;
+      --blue-soft: #EAF4FF;
+      --green: #2E7D32;
+      --green-dark: #205D25;
+      --green-soft: #EDF8EE;
+      --coral: #C44732;
+      --coral-dark: #A93C2E;
+      --coral-soft: #FFF0EC;
+      --gold: #9A6500;
+      --gold-soft: #FFF7DE;
+      --ink: #1F2937;
+      --muted: #556273;
+      --line: #D8E1EA;
+      --page: #F7FAFC;
+      --surface: #FFFFFF;
+      --radius-lg: 22px;
+      --shadow: 0 10px 28px rgba(23, 59, 108, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--page);
+      line-height: 1.6;
+    }
+
+    a { color: var(--blue-dark); }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 4px solid #111827;
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      z-index: 1000;
+      padding: 10px 14px;
+      background: #111827;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .site-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      font-weight: 700;
+      padding: 9px 11px;
+      border-radius: 10px;
+      color: var(--ink);
+    }
+
+    .main-nav a:hover { background: #F0F4F8; }
+    .help-link { background: var(--blue); color: #fff !important; }
+    .help-link:hover { background: var(--blue-dark) !important; }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 22px 72px;
+    }
+
+    .hero {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--blue-dark);
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.18;
+      color: var(--navy);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .standards-note {
+      margin-top: 24px;
+      background: var(--gold-soft);
+      border: 2px solid #E8CB7A;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .standards-note h2 {
+      margin: 0 0 8px;
+      font-size: 1.45rem;
+    }
+
+    .standards-note p { margin: 0; }
+    .standards-note p + p { margin-top: 8px; }
+
+    .jump-nav {
+      margin-top: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+
+    .jump-nav h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .jump-links a {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      padding: 9px 13px;
+      border: 2px solid #B9C7D5;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      background: #fff;
+    }
+
+    .jump-links a:hover { background: var(--blue-soft); }
+
+    .section-heading { margin: 46px 0 18px; }
+    .section-heading h2 {
+      margin: 0 0 7px;
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
+    }
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .info-card,
+    .category-card,
+    .revision-card,
+    .check-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+
+    .info-card h3,
+    .category-card h3,
+    .revision-card h3,
+    .check-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+    }
+
+    .info-card p,
+    .category-card p,
+    .revision-card p { margin: 0; }
+    .info-card p + p,
+    .category-card p + p,
+    .revision-card p + p { margin-top: 10px; }
+
+    .goal-card { border-top: 6px solid var(--blue); }
+    .steps-card { border-top: 6px solid var(--green); }
+
+    .formula {
+      margin-top: 18px;
+      background: var(--blue-soft);
+      border-left: 5px solid var(--blue);
+      padding: 16px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .category-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .category-card { padding: 0; overflow: hidden; }
+    .category-header { padding: 22px 22px 16px; }
+    .category-header p { color: var(--muted); }
+
+    .model-goal {
+      margin: 0 22px 18px;
+      padding: 18px;
+      background: linear-gradient(135deg, #EAF4FF 0%, #EDF8EE 100%);
+      border: 2px solid #B8D7F5;
+      border-radius: 16px;
+    }
+
+    .model-goal h4 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .model-goal p { margin: 0; color: #25364A; }
+
+    details {
+      border-top: 1px solid var(--line);
+      background: #FBFCFE;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 16px 22px;
+      font-weight: 800;
+      color: var(--blue-dark);
+    }
+
+    details[open] summary { border-bottom: 1px solid var(--line); }
+    details ul {
+      margin: 0;
+      padding: 16px 42px 22px;
+    }
+    details li + li { margin-top: 10px; }
+
+    .warning-note {
+      margin-top: 18px;
+      background: var(--coral-soft);
+      border-left: 5px solid var(--coral);
+      padding: 16px 18px;
+      border-radius: 12px;
+    }
+
+    .warning-note strong { color: var(--coral-dark); }
+
+    .revision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .revision-card { border-top: 5px solid var(--coral); }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .88rem;
+    }
+
+    .needs-work { background: var(--coral-soft); color: var(--coral-dark); }
+    .stronger { background: var(--green-soft); color: var(--green-dark); }
+    .better-step { background: var(--blue-soft); color: var(--blue-dark); }
+
+    .example-text {
+      margin-top: 7px !important;
+      padding: 12px 14px;
+      background: #F8FAFC;
+      border-radius: 10px;
+      border: 1px solid #E5EAF0;
+    }
+
+    .revision-card hr {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 16px 0;
+    }
+
+    .revision-card .why {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .check-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-card li {
+      position: relative;
+      padding-left: 38px;
+    }
+
+    .check-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 2px solid transparent;
+    }
+
+    .button.blue { background: var(--blue); color: #fff; }
+    .button.green { background: var(--green); color: #fff; }
+    .button.white { background: #fff; color: var(--navy); border-color: #B9C7D5; }
+    .button.blue:hover { background: var(--blue-dark); }
+    .button.green:hover { background: var(--green-dark); }
+    .button.white:hover { background: #F4F7FA; }
+
+    .support-note {
+      margin-top: 28px;
+      border-left: 5px solid var(--blue);
+      background: var(--blue-soft);
+      padding: 18px 20px;
+      border-radius: 12px;
+      color: #334155;
+    }
+
+    footer {
+      background: #EAF4FF;
+      border-top: 1px solid #C9DDF2;
+      color: #334155;
+    }
+
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: .96rem;
+    }
+
+    .footer-inner p { margin: 0; max-width: 700px; }
+
+    @media (max-width: 820px) {
+      .header-inner { align-items: flex-start; flex-direction: column; }
+      .main-nav { justify-content: flex-start; }
+      .two-column, .revision-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      main { padding: 24px 14px 52px; }
+      .hero { padding: 24px 20px; }
+      .category-header, summary { padding-left: 18px; padding-right: 18px; }
+      .model-goal { margin-left: 18px; margin-right: 18px; }
+      details ul { padding-left: 36px; padding-right: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="index.html" aria-label="CQI at STAR home">CQI at STAR</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="new-to-cqi.html">New to CQI</a>
+        <a href="fall-action-plan.html">Fall Action Plan</a>
+        <a href="spring-reflection.html">Spring Reflection</a>
+        <a href="cqi-resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a class="help-link" href="cqi-resources.html#help">Need Help?</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">SMART Goal Help</p>
+      <h1 id="page-title">SMART Goal &amp; Action Step Examples</h1>
+      <p>
+        Use this page when you need an idea, want to check whether your SMART goal is specific enough,
+        or need help turning a vague action step into something your team can actually carry out and document.
+      </p>
+    </section>
+
+    <section class="standards-note" aria-labelledby="standards-heading">
+      <h2 id="standards-heading">One goal, two standards, one story</h2>
+      <p>
+        For STAR’s 2026–27 Point-of-Service Action Plan, your <strong>one SMART goal</strong> should address both
+        <strong>Safe &amp; Supportive Environment (SSE)</strong> and <strong>Youth Voice &amp; Leadership (YVL)</strong>.
+      </p>
+      <p>
+        The examples on this page are starting points. Use your own site feedback and needs to choose a focus,
+        then adjust the measure, frequency, and activities so the plan makes sense for your students and program.
+      </p>
+    </section>
+
+    <nav class="jump-nav" aria-label="SMART goal help sections">
+      <h2>What do you need help with?</h2>
+      <div class="jump-links">
+        <a href="#ideas">I need an idea</a>
+        <a href="#goal-check">My goal may need revision</a>
+        <a href="#action-steps">My action steps are vague</a>
+        <a href="#final-check">I want a final check</a>
+      </div>
+    </nav>
+
+    <section aria-labelledby="difference-heading">
+      <div class="section-heading">
+        <h2 id="difference-heading">First: know the difference between a goal and an action step</h2>
+        <p>This is one of the easiest places for an Action Plan to get confusing.</p>
+      </div>
+
+      <div class="two-column">
+        <article class="info-card goal-card">
+          <h3>SMART Goal = the result</h3>
+          <p>Your SMART goal explains what you want to improve, how you will recognize progress, and the timeframe for the improvement.</p>
+          <p><strong>Think:</strong> What should be different for students or the program by the end of the year?</p>
+        </article>
+
+        <article class="info-card steps-card">
+          <h3>Action Steps = how you will get there</h3>
+          <p>Your 3–5 action steps describe the specific things your team will do to work toward the SMART goal.</p>
+          <p><strong>Think:</strong> What will someone actually do, who will be responsible, and when will it happen?</p>
+        </article>
+      </div>
+
+      <div class="formula">
+        Site Feedback or Data → SSE + YVL → One SMART Goal → 3–5 Specific Action Steps → Person + Timeline + Resources → Evidence
+      </div>
+    </section>
+
+    <section id="ideas" aria-labelledby="ideas-heading">
+      <div class="section-heading">
+        <h2 id="ideas-heading">Ideas for a SMART goal that connects SSE and YVL</h2>
+        <p>Browse by focus area. Each category includes one model goal and several possible action ideas.</p>
+      </div>
+
+      <div class="warning-note">
+        <strong>Do not copy the action ideas into the SMART Goal field.</strong>
+        The model goal describes the improvement you are working toward. The action ideas are possible ways to make that improvement happen.
+      </div>
+
+      <div class="category-grid" style="margin-top:18px;">
+        <article class="category-card">
+          <div class="category-header">
+            <h3>Student Voice, Feedback, and Trust</h3>
+            <p>Help students feel safe speaking up and make sure their ideas and concerns are heard.</p>
+          </div>
+          <div class="model-goal">
+            <h4>Possible SMART Goal</h4>
+            <p><strong>By May 2027, students will have regular, documented opportunities to influence program decisions and raise ideas or concerns, demonstrated by at least two structured feedback opportunities each month and at least one documented program response or improvement each month.</strong></p>
+          </div>
+          <details>
+            <summary>See 5 possible action ideas</summary>
+            <ul>
+              <li>Hold one student feedback circle each month and document at least one program improvement each quarter based on student feedback.</li>
+              <li>Give students a short monthly survey and use the results to make at least three program improvements during the year.</li>
+              <li>Provide students with at least two opportunities each month to share ideas or concerns and document how staff responded.</li>
+              <li>Establish a student suggestion system, review suggestions monthly, and implement at least four student-generated ideas during the year.</li>
+              <li>Conduct monthly student check-ins about safety, inclusion, and belonging and document at least one response or improvement each month.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="category-card">
+          <div class="category-header">
+            <h3>Student Choice and Inclusive Activities</h3>
+            <p>Give students meaningful choices while keeping activities safe, welcoming, accessible, and responsive to student interests.</p>
+          </div>
+          <div class="model-goal">
+            <h4>Possible SMART Goal</h4>
+            <p><strong>By May 2027, students will have regular opportunities to make meaningful choices about program activities in a safe and inclusive environment, with student input used to shape activities at least once each month and at least one documented activity adjustment each quarter.</strong></p>
+          </div>
+          <details>
+            <summary>See 5 possible action ideas</summary>
+            <ul>
+              <li>Give students a choice between at least two activity options twice each month and document student choices.</li>
+              <li>Hold a monthly student vote to help select upcoming activities and use the results when planning.</li>
+              <li>Have students help choose or plan at least one activity each month and document how their input influenced the activity.</li>
+              <li>Ask students about their activity interests once each quarter and use their feedback to add or adjust at least one activity each quarter.</li>
+              <li>Conduct a quarterly student review of activities and make at least one documented change each quarter based on student feedback about choice, safety, or inclusion.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="category-card">
+          <div class="category-header">
+            <h3>Student Leadership Roles</h3>
+            <p>Give students real opportunities to lead, contribute, and take responsibility in ways that feel supported and meaningful.</p>
+          </div>
+          <div class="model-goal">
+            <h4>Possible SMART Goal</h4>
+            <p><strong>By May 2027, students will take active, supported leadership roles in the program at least twice each month, with staff documenting student participation and gathering brief feedback about how the leadership opportunities are working.</strong></p>
+          </div>
+          <details>
+            <summary>See 5 possible action ideas</summary>
+            <ul>
+              <li>Provide at least two student leadership opportunities each month and document student participation.</li>
+              <li>Establish a student leadership team that meets at least once each month and helps plan or improve the program.</li>
+              <li>Have students lead or co-lead at least one program activity each month and collect brief feedback about the experience.</li>
+              <li>Create at least four meaningful student leadership roles and rotate students through those roles during the year.</li>
+              <li>Give older students opportunities to serve as peer mentors or activity helpers at least twice each month and conduct regular staff check-ins about how the roles are working.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="category-card">
+          <div class="category-header">
+            <h3>Belonging, Inclusion, and Fair Treatment</h3>
+            <p>Help students feel respected, included, and comfortable being themselves while giving them a voice in improving program climate.</p>
+          </div>
+          <div class="model-goal">
+            <h4>Possible SMART Goal</h4>
+            <p><strong>By May 2027, students will have regular opportunities to shape a more welcoming, fair, and inclusive program, demonstrated by quarterly student feedback on belonging and fair treatment and at least three documented program improvements based on that feedback.</strong></p>
+          </div>
+          <details>
+            <summary>See 5 possible action ideas</summary>
+            <ul>
+              <li>Hold monthly student check-ins about belonging and inclusion and make at least one improvement each quarter based on student feedback.</li>
+              <li>Have students and staff create shared program expectations together, review them once each quarter, and document student feedback.</li>
+              <li>Ask students about fairness, inclusion, and belonging once each quarter and make at least three documented improvements based on their responses.</li>
+              <li>Provide one monthly discussion or activity focused on belonging, respect, or inclusion and document student suggestions for improving the program.</li>
+              <li>Use quarterly student feedback to identify concerns about inclusion or fair treatment and document how staff responded to those concerns.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="category-card">
+          <div class="category-header">
+            <h3>Student-Centered Behavior and Problem-Solving</h3>
+            <p>Give students a voice in creating expectations, identifying concerns, and helping solve problems that affect the program community.</p>
+          </div>
+          <div class="model-goal">
+            <h4>Possible SMART Goal</h4>
+            <p><strong>By May 2027, students will participate regularly in creating expectations and solving program concerns, with at least one structured problem-solving opportunity each month and at least one documented student-influenced solution or adjustment each quarter.</strong></p>
+          </div>
+          <details>
+            <summary>See 5 possible action ideas</summary>
+            <ul>
+              <li>Have students and staff develop program behavior expectations together, review them once each quarter, and make at least one documented adjustment based on student feedback.</li>
+              <li>Hold one student problem-solving circle each month and document at least one solution or follow-up action each quarter.</li>
+              <li>Give students an opportunity to suggest solutions to at least one site-wide concern each quarter and document the staff response.</li>
+              <li>Use monthly student check-ins to identify concerns about behavior, conflict, or fairness and document actions taken in response.</li>
+              <li>Use a student-centered problem-solving process for identified program concerns and review the results with students at least once each quarter.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="category-card">
+          <div class="category-header">
+            <h3>Student-Led Program Improvement</h3>
+            <p>Let students take a bigger role in identifying what should change, helping put a solution into action, and reflecting on whether it worked.</p>
+          </div>
+          <div class="model-goal">
+            <h4>Possible SMART Goal</h4>
+            <p><strong>By May 2027, students will take an active role in improving the program by helping identify, implement, and reflect on at least three program improvements that support student voice, belonging, safety, or inclusion.</strong></p>
+          </div>
+          <details>
+            <summary>See 5 possible action ideas</summary>
+            <ul>
+              <li>Have students identify and help address at least one program improvement each quarter and document the recommendation and resulting change.</li>
+              <li>Complete at least three student-led improvement projects in which students identify a need, suggest a solution, help implement it, and reflect on the result.</li>
+              <li>Establish a student improvement team that meets once each month, recommends changes, and follows up on what happened.</li>
+              <li>Conduct a quarterly program review with students and implement at least one student-selected improvement each quarter.</li>
+              <li>Use a “You Said, We Did” process at least once each quarter and document the program change that resulted from student feedback.</li>
+            </ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="goal-check" aria-labelledby="goal-check-heading">
+      <div class="section-heading">
+        <h2 id="goal-check-heading">Does your SMART goal look like one of these?</h2>
+        <p>These are common patterns that sound reasonable at first but need another pass.</p>
+      </div>
+
+      <div class="revision-grid">
+        <article class="revision-card">
+          <h3>Too vague</h3>
+          <span class="label needs-work">Needs revision</span>
+          <p class="example-text">“Improve Youth Voice and Leadership.”</p>
+          <p class="why"><strong>Why:</strong> It does not say what will change, how progress will be measured, when it will happen, or how SSE connects.</p>
+          <hr>
+          <span class="label stronger">Stronger</span>
+          <p class="example-text">“By May 2027, students will have regular opportunities to influence program decisions, with at least one structured feedback opportunity each month and at least four documented program improvements based on student input.”</p>
+        </article>
+
+        <article class="revision-card">
+          <h3>Activities instead of a goal</h3>
+          <span class="label needs-work">Needs revision</span>
+          <p class="example-text">“Hold student council meetings, interview students, meet with the principal, and create new clubs.”</p>
+          <p class="why"><strong>Why:</strong> These are things the site might do. They belong in the Action Steps section, not as the result the site wants to achieve.</p>
+          <hr>
+          <span class="label stronger">Stronger</span>
+          <p class="example-text">“By May 2027, students will have regular opportunities to share feedback, help plan activities, and influence program improvements in ways that strengthen voice, belonging, and trust.”</p>
+        </article>
+
+        <article class="revision-card">
+          <h3>Several goals bundled together</h3>
+          <span class="label needs-work">Needs revision</span>
+          <p class="example-text">“Improve safety, start a student council, increase enrollment, hold parent meetings, and improve student behavior.”</p>
+          <p class="why"><strong>Why:</strong> This is several initiatives and outcomes at once. The plan will be hard to follow and the action steps may point in different directions.</p>
+          <hr>
+          <span class="label stronger">Stronger</span>
+          <p class="example-text">Choose one improvement story, such as increasing meaningful student input while strengthening belonging and trust, then move the strategies into 3–5 action steps.</p>
+        </article>
+
+        <article class="revision-card">
+          <h3>Only one standard is clear</h3>
+          <span class="label needs-work">Needs revision</span>
+          <p class="example-text">“Students will have more leadership opportunities.”</p>
+          <p class="why"><strong>Why:</strong> The YVL connection is clear, but the goal does not yet show how the work supports a safe and supportive environment.</p>
+          <hr>
+          <span class="label stronger">Stronger</span>
+          <p class="example-text">“By May 2027, students will take regular leadership roles in planning and leading activities in ways that strengthen student voice, belonging, respect, and shared responsibility.”</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="action-steps" aria-labelledby="action-steps-heading">
+      <div class="section-heading">
+        <h2 id="action-steps-heading">Are your action steps specific enough?</h2>
+        <p>A good action step should describe something someone can actually do and later verify.</p>
+      </div>
+
+      <div class="revision-grid">
+        <article class="revision-card">
+          <h3>A label is not an action</h3>
+          <span class="label needs-work">Too vague</span>
+          <p class="example-text">“Student Council”</p>
+          <hr>
+          <span class="label better-step">More actionable</span>
+          <p class="example-text">“Establish a student advisory group by October and hold one meeting each month to gather student ideas and concerns.”</p>
+        </article>
+
+        <article class="revision-card">
+          <h3>Too broad to verify</h3>
+          <span class="label needs-work">Too vague</span>
+          <p class="example-text">“Improve student voice.”</p>
+          <hr>
+          <span class="label better-step">More actionable</span>
+          <p class="example-text">“Provide students with at least one structured opportunity each month to give feedback about activities and program climate, then review the feedback with staff.”</p>
+        </article>
+
+        <article class="revision-card">
+          <h3>Responsibility and timing are unclear</h3>
+          <span class="label needs-work">Needs revision</span>
+          <p class="example-text">Person Responsible: “All Staff” &nbsp; | &nbsp; Completion Date: “Ongoing”</p>
+          <p class="why"><strong>Why:</strong> These can sometimes be accurate, but they make accountability difficult when a specific lead or milestone is possible.</p>
+          <hr>
+          <span class="label better-step">More specific</span>
+          <p class="example-text">Person Responsible: “Site Lead, with activity leaders” &nbsp; | &nbsp; Completion Date: “Advisory group established by October 15; meetings monthly through May.”</p>
+        </article>
+
+        <article class="revision-card">
+          <h3>The step does not advance the goal</h3>
+          <span class="label needs-work">Check alignment</span>
+          <p class="example-text">Goal: increase student voice and belonging. Action step: “Promote the program to increase enrollment.”</p>
+          <p class="why"><strong>Why:</strong> Enrollment may be worthwhile, but this action does not clearly move the stated SMART goal forward.</p>
+          <hr>
+          <span class="label better-step">Better test</span>
+          <p class="example-text">Ask: “If we complete this action, will it clearly help us reach the SMART goal?” If the answer is no, revise or remove the step.</p>
+        </article>
+      </div>
+
+      <div class="formula" style="margin-top:18px;">
+        Quick test: Could someone ask, “Did this action happen?” and answer yes or no using evidence? If not, make the step more specific.
+      </div>
+    </section>
+
+    <section id="final-check" aria-labelledby="final-check-heading">
+      <div class="section-heading">
+        <h2 id="final-check-heading">10-second check before you move on</h2>
+        <p>Your plan should read like one connected story from the goal through the action steps.</p>
+      </div>
+
+      <div class="check-card">
+        <ul>
+          <li>I selected only <strong>Safe &amp; Supportive Environment</strong> and <strong>Youth Voice &amp; Leadership</strong> for this STAR plan.</li>
+          <li>I wrote <strong>one SMART goal</strong> that connects both standards.</li>
+          <li>My SMART goal describes a <strong>result</strong>, not a list of activities.</li>
+          <li>My goal includes something I can <strong>measure or observe</strong> and a timeframe.</li>
+          <li>I have <strong>3–5 specific action steps</strong>.</li>
+          <li>Someone could determine later whether each action step actually happened.</li>
+          <li>Each action step clearly helps advance my SMART goal.</li>
+          <li>Each step identifies who is responsible and includes a meaningful timeline.</li>
+        </ul>
+      </div>
+
+      <div class="button-row">
+        <a class="button blue" href="action-plan-coach.html">Use the SMART Action Plan Coach</a>
+        <a class="button green" href="fall-action-plan.html">Return to Fall Action Plan Help</a>
+        <a class="button white" href="https://btb-portal.ercdata.com/actionplanmanager" target="_blank" rel="noopener">Open the BTB Action Plan Manager</a>
+      </div>
+    </section>
+
+    <aside class="support-note" aria-label="Important reminder about examples">
+      <strong>Remember:</strong> These examples are not required wording. Use them to help you think, then make sure your final plan reflects your own site’s feedback, students, and program needs.
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>
+        <strong>Maintained by Karen Crozer, STAR Development Office.</strong><br>
+        This is a STAR support resource and is not an official Beyond the Bell website.
+      </p>
+      <p>
+        <a href="about.html">About This Site</a> &nbsp;•&nbsp;
+        <a href="privacy.html">Privacy</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
