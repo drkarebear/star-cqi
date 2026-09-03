@@ -1,1 +1,720 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CQI at STAR</title>
+  <meta name="description" content="Simple tools and resources to help STAR Site Directors and Cluster Leads understand CQI, create a fall action plan, and complete spring reflection requirements.">
+  <link rel="icon" type="image/png" href="favicon7.png">
+
+  <style>
+    :root {
+      --navy: #173B6C;
+      --blue: #1769C2;
+      --blue-dark: #0F4F96;
+      --blue-soft: #EAF4FF;
+
+      --green: #2E7D32;
+      --green-dark: #205D25;
+      --green-soft: #EDF8EE;
+
+      --coral: #D9533F;
+      --coral-dark: #A93C2E;
+      --coral-soft: #FFF0EC;
+
+      --gold: #A86500;
+      --gold-soft: #FFF7DE;
+
+      --ink: #1F2937;
+      --muted: #556273;
+      --line: #D8E1EA;
+      --surface: #FFFFFF;
+      --page: #F7FAFC;
+
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow: 0 10px 28px rgba(23, 59, 108, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--page);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--blue-dark);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 4px solid #111827;
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      z-index: 1000;
+      padding: 10px 14px;
+      background: #111827;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .site-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      font-weight: 700;
+      padding: 9px 11px;
+      border-radius: 10px;
+      color: var(--ink);
+    }
+
+    .main-nav a:hover {
+      background: #F0F4F8;
+    }
+
+    .main-nav a[aria-current="page"] {
+      color: var(--blue-dark);
+      background: var(--blue-soft);
+    }
+
+    .help-link {
+      background: var(--blue);
+      color: #fff !important;
+    }
+
+    .help-link:hover {
+      background: var(--blue-dark) !important;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 42px 22px 70px;
+    }
+
+    .hero {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 8px;
+      color: var(--blue-dark);
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.16;
+      color: var(--navy);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      margin: 0 0 12px;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: #344054;
+    }
+
+    .hero-copy {
+      font-size: 1.06rem;
+      color: var(--muted);
+      max-width: 670px;
+      margin: 0;
+    }
+
+    .cycle-visual {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      align-items: start;
+      text-align: center;
+    }
+
+    .cycle-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+    }
+
+    .cycle-icon {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(23, 59, 108, 0.08);
+    }
+
+    .cycle-step:nth-child(1) .cycle-icon { background: var(--green-soft); }
+    .cycle-step:nth-child(2) .cycle-icon { background: var(--blue-soft); }
+    .cycle-step:nth-child(3) .cycle-icon { background: var(--coral-soft); }
+    .cycle-step:nth-child(4) .cycle-icon { background: var(--gold-soft); }
+
+    .cycle-step:nth-child(1) span { color: var(--green-dark); }
+    .cycle-step:nth-child(2) span { color: var(--blue-dark); }
+    .cycle-step:nth-child(3) span { color: var(--coral-dark); }
+    .cycle-step:nth-child(4) span { color: var(--gold); }
+
+    .section-heading {
+      margin: 46px 0 20px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .path-card {
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .path-card.green { background: linear-gradient(180deg, #FFFFFF 0%, var(--green-soft) 100%); border-color: #B9DDBC; }
+    .path-card.blue { background: linear-gradient(180deg, #FFFFFF 0%, var(--blue-soft) 100%); border-color: #BBD8F4; }
+    .path-card.coral { background: linear-gradient(180deg, #FFFFFF 0%, var(--coral-soft) 100%); border-color: #F0C1B8; }
+
+    .number-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+    }
+
+    .green .number-badge { background: var(--green); }
+    .blue .number-badge { background: var(--blue); }
+    .coral .number-badge { background: var(--coral); }
+
+    .card-icon {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 10px;
+    }
+
+    .path-card h3 {
+      font-size: 1.45rem;
+      margin: 0 0 10px;
+    }
+
+    .green h3 { color: var(--green-dark); }
+    .blue h3 { color: var(--blue-dark); }
+    .coral h3 { color: var(--coral-dark); }
+
+    .path-card p {
+      margin: 0 0 20px;
+      color: var(--muted);
+    }
+
+    .path-card .button {
+      margin-top: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 2px solid transparent;
+    }
+
+    .button.green { background: var(--green); color: #fff; }
+    .button.blue { background: var(--blue); color: #fff; }
+    .button.coral { background: var(--coral); color: #fff; }
+    .button.gold { background: #FFC43D; color: #473000; }
+
+    .button.green:hover { background: var(--green-dark); }
+    .button.blue:hover { background: var(--blue-dark); }
+    .button.coral:hover { background: var(--coral-dark); }
+    .button.gold:hover { background: #E5A900; }
+
+    .year-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .year-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .year-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+    }
+
+    .year-card p {
+      margin: 0 0 8px;
+      color: var(--muted);
+    }
+
+    .year-card strong {
+      color: var(--ink);
+    }
+
+    .resources-band {
+      margin-top: 24px;
+      background: var(--gold-soft);
+      border: 2px solid #F2D487;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .resources-band h2 {
+      margin: 0 0 6px;
+      font-size: 1.55rem;
+    }
+
+    .resources-band p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .quick-links {
+      margin-top: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+
+    .quick-links h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+    }
+
+    .quick-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quick-link-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .quick-link-row a:hover {
+      background: #F2F6FA;
+    }
+
+    .support-note {
+      margin-top: 28px;
+      border-left: 5px solid var(--blue);
+      background: var(--blue-soft);
+      padding: 18px 20px;
+      border-radius: 12px;
+      color: #334155;
+    }
+
+    .support-note strong {
+      color: var(--navy);
+    }
+
+    footer {
+      background: #EAF4FF;
+      border-top: 1px solid #C9DDF2;
+      color: #334155;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: .96rem;
+    }
+
+    .footer-inner p {
+      margin: 0;
+      max-width: 720px;
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .main-nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .year-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resources-band {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 24px 14px 50px;
+      }
+
+      .hero {
+        padding: 24px 18px;
+      }
+
+      .cycle-visual {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cycle-icon {
+        width: 78px;
+        height: 78px;
+      }
+
+      .path-card,
+      .year-card,
+      .resources-band,
+      .quick-links {
+        padding: 20px;
+      }
+
+      .main-nav a {
+        padding: 8px 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="index.html" aria-label="CQI at STAR home">CQI at STAR</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="new-to-cqi.html">New to CQI</a>
+        <a href="fall-action-plan.html">Fall Action Plan</a>
+        <a href="spring-reflection.html">Spring Reflection</a>
+        <a href="cqi-resources.html">Resources</a>
+        <a class="help-link" href="cqi-resources.html#help">Need Help?</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Continuous Quality Improvement</p>
+        <h1 id="page-title">CQI at STAR</h1>
+        <p class="hero-subtitle">Simple tools to help you plan, improve, and reflect.</p>
+        <p class="hero-copy">
+          CQI means looking at how your program is doing, choosing something to improve,
+          trying a plan, and learning from what happens. You do not need to know everything
+          before you start.
+        </p>
+      </div>
+
+      <div class="cycle-visual" aria-label="CQI cycle: Learn, Plan, Reflect, Improve">
+        <div class="cycle-step">
+          <div class="cycle-icon" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="64" height="64" role="img">
+              <path d="M50 76V43" stroke="#2E7D32" stroke-width="7" stroke-linecap="round"/>
+              <path d="M47 49C26 47 18 32 20 18c18 1 31 9 33 28" fill="#72C758"/>
+              <path d="M53 48c20-2 30-13 31-29-18 0-31 8-35 26" fill="#46A846"/>
+              <ellipse cx="50" cy="80" rx="27" ry="9" fill="#7B4E2D"/>
+            </svg>
+          </div>
+          <span>Learn</span>
+        </div>
+
+        <div class="cycle-step">
+          <div class="cycle-icon" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="64" height="64">
+              <rect x="24" y="19" width="51" height="66" rx="6" fill="#FFFFFF" stroke="#173B6C" stroke-width="6"/>
+              <rect x="38" y="12" width="23" height="12" rx="6" fill="#173B6C"/>
+              <path d="M34 38l5 5 9-10M34 53l5 5 9-10M34 68l5 5 9-10" fill="none" stroke="#2E7D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M61 69l16-16 8 8-16 16-11 3z" fill="#1769C2"/>
+            </svg>
+          </div>
+          <span>Plan</span>
+        </div>
+
+        <div class="cycle-step">
+          <div class="cycle-icon" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="64" height="64">
+              <rect x="22" y="16" width="56" height="70" rx="8" fill="#F86E58"/>
+              <path d="M34 16v70" stroke="#B54334" stroke-width="4"/>
+              <circle cx="57" cy="45" r="13" fill="#FFD35C"/>
+              <circle cx="57" cy="45" r="7" fill="#F7A624"/>
+              <path d="M57 58v17M57 66c-8-8-13-6-16-3M57 67c8-8 13-6 16-3" fill="none" stroke="#2E7D32" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>Reflect</span>
+        </div>
+
+        <div class="cycle-step">
+          <div class="cycle-icon" aria-hidden="true">
+            <svg viewBox="0 0 100 100" width="64" height="64">
+              <rect x="20" y="60" width="13" height="23" rx="2" fill="#1769C2"/>
+              <rect x="43" y="48" width="13" height="35" rx="2" fill="#4D9BE6"/>
+              <rect x="66" y="34" width="13" height="49" rx="2" fill="#59B34C"/>
+              <path d="M23 48c17-3 30-12 43-25" fill="none" stroke="#EAA800" stroke-width="6" stroke-linecap="round"/>
+              <path d="M65 17l4 9 10 1-8 7 2 10-8-5-9 5 3-10-8-7 10-1z" fill="#FFC43D"/>
+            </svg>
+          </div>
+          <span>Improve</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="start-heading">
+      <div class="section-heading">
+        <h2 id="start-heading">What do you need today?</h2>
+        <p>Choose the option that matches where you are in the CQI process.</p>
+      </div>
+
+      <div class="path-grid">
+        <article class="path-card green">
+          <div class="number-badge" aria-hidden="true">1</div>
+
+          <svg class="card-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M50 76V43" stroke="#2E7D32" stroke-width="7" stroke-linecap="round"/>
+            <path d="M47 49C26 47 18 32 20 18c18 1 31 9 33 28" fill="#72C758"/>
+            <path d="M53 48c20-2 30-13 31-29-18 0-31 8-35 26" fill="#46A846"/>
+            <ellipse cx="50" cy="80" rx="27" ry="9" fill="#7B4E2D"/>
+          </svg>
+
+          <h3>I’m New to CQI</h3>
+          <p>Learn what CQI is, why STAR does it, and what you need to do during the year.</p>
+          <a class="button green" href="new-to-cqi.html">
+            Learn the CQI Basics <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="path-card blue">
+          <div class="number-badge" aria-hidden="true">2</div>
+
+          <svg class="card-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <rect x="24" y="19" width="51" height="66" rx="6" fill="#FFFFFF" stroke="#173B6C" stroke-width="6"/>
+            <rect x="38" y="12" width="23" height="12" rx="6" fill="#173B6C"/>
+            <path d="M34 38l5 5 9-10M34 53l5 5 9-10M34 68l5 5 9-10" fill="none" stroke="#2E7D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M61 69l16-16 8 8-16 16-11 3z" fill="#1769C2"/>
+          </svg>
+
+          <h3>I Need to Make My Fall Action Plan</h3>
+          <p>See the steps, use the STAR Action Plan Coach, and get ready to enter your final plan in the BTB portal.</p>
+          <a class="button blue" href="fall-action-plan.html">
+            Start My Fall Action Plan <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="path-card coral">
+          <div class="number-badge" aria-hidden="true">3</div>
+
+          <svg class="card-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="35" r="11" fill="#FFD35C"/>
+            <circle cx="50" cy="17" r="14" fill="#F86E58"/>
+            <circle cx="68" cy="35" r="14" fill="#FF826F"/>
+            <circle cx="50" cy="53" r="14" fill="#F86E58"/>
+            <circle cx="32" cy="35" r="14" fill="#FF826F"/>
+            <path d="M50 55v30M50 70c-11-10-19-7-23-2M50 72c11-10 19-7 23-2" fill="none" stroke="#2E7D32" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+
+          <h3>I Need to Complete My Spring Forms &amp; Reflection</h3>
+          <p>Find your required spring forms, deadlines, reflection help, and examples of documentation.</p>
+          <a class="button coral" href="spring-reflection.html">
+            Start My Spring Reflection <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="year-heading">
+      <div class="section-heading">
+        <h2 id="year-heading">The year in two parts</h2>
+        <p>You do not have to think about the whole year at once.</p>
+      </div>
+
+      <div class="year-grid">
+        <article class="year-card">
+          <h3>Fall: Make a plan and try it</h3>
+          <p><strong>Action Plan due September 30, 2026.</strong></p>
+          <p>Review your feedback, choose a focus, create your Action Plan, enter it in the BTB system, and begin putting it into action.</p>
+          <p><a href="fall-action-plan.html">Go to Fall Action Plan help</a></p>
+        </article>
+
+        <article class="year-card">
+          <h3>Spring: Look back and reflect</h3>
+          <p>Return to your Action Plan, talk with your team, gather a few examples of what happened, and complete your required spring forms.</p>
+          <p><a href="spring-reflection.html">Go to Spring Forms &amp; Reflection</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="resources-band" aria-labelledby="resources-heading">
+      <div>
+        <h2 id="resources-heading">Looking for CQI resources?</h2>
+        <p>Find guides, examples, training materials, BTB resources, and other tools in one place.</p>
+      </div>
+      <a class="button gold" href="cqi-resources.html">
+        View CQI Resources <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <section class="quick-links" aria-labelledby="quick-links-heading">
+      <h2 id="quick-links-heading">Quick links</h2>
+      <div class="quick-link-row">
+        <a href="new-to-cqi.html">Learn About CQI</a>
+        <a href="fall-action-plan.html">Fall Action Plan Help</a>
+        <a href="spring-reflection.html">Spring Reflection Help</a>
+        <a href="cqi-resources.html">CQI Resources</a>
+        <a href="cqi-resources.html#help">Get Help</a>
+      </div>
+    </section>
+
+    <aside class="support-note" aria-label="Important submission reminder">
+      <strong>Important:</strong> This site helps you understand and prepare your CQI work.
+      Required forms and submissions still need to be completed in the appropriate BTB system.
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>
+        This site is a support resource for STAR staff working on Beyond the Bell Continuous Quality Improvement.
+      </p>
+      <p><strong>Maintained by the STAR Development Team.</strong></p>
+    </div>
+  </footer>
+</body>
+</html>
