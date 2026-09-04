@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
   <title>SMART Goal & Action Step Examples | CQI at STAR</title>
   <meta name="description" content="Plain-language examples to help STAR staff write one SMART goal addressing Safe & Supportive Environment and Youth Voice & Leadership, plus 3–5 specific action steps.">
   <link rel="icon" type="image/png" href="favicon7.png">
@@ -1111,7 +1112,7 @@
       <div class="button-row">
         <a class="button blue" href="action-plan-coach.html">Use the SMART Action Plan Coach</a>
         <a class="button green" href="fall-action-plan.html">Return to Fall Action Plan Help</a>
-        <a class="button white" href="https://btb-portal.ercdata.com/actionplanmanager" target="_blank" rel="noopener">Open the BTB Action Plan Manager</a>
+        <a class="button white" href="https://btb-portal.ercdata.com/actionplanmanager" target="_blank" rel="noopener noreferrer">Open the BTB Action Plan Manager</a>
       </div>
     </section>
 
@@ -1287,7 +1288,7 @@
       questionTitle.textContent = `Question ${index + 1}`;
       promptEl.textContent = q.prompt;
       scenarioEl.textContent = q.scenario;
-      choicesEl.innerHTML = "";
+      choicesEl.replaceChildren();
 
       q.choices.forEach((choice, i) => {
         const label = document.createElement("label");
@@ -1320,7 +1321,9 @@
       const correct = chosen === q.answer;
       if (correct) score++;
       feedbackEl.className = `practice-feedback ${correct ? "good" : "bad"}`;
-      feedbackEl.innerHTML = `<strong>${correct ? "Correct." : "Not quite."}</strong> ${q.feedback}`;
+      const feedbackLead = document.createElement("strong");
+      feedbackLead.textContent = correct ? "Correct." : "Not quite.";
+      feedbackEl.replaceChildren(feedbackLead, document.createTextNode(` ${q.feedback}`));
       checkBtn.classList.add("practice-hidden");
       nextBtn.classList.remove("practice-hidden");
       form.querySelectorAll('input[name="practice-answer"]').forEach((radio) => { radio.disabled = true; });

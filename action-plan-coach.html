@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
   <title>Interactive Action Plan Coach | CQI at STAR</title>
   <meta name="description" content="Interactive STAR SMART Action Plan Coach for drafting a fall CQI SMART goal and action steps.">
   <link rel="icon" type="image/png" href="favicon7.png">
@@ -273,6 +274,36 @@
       box-shadow: var(--shadow);
     }
 
+    .coach-load-panel {
+      background: var(--blue-soft);
+      border: 1px solid #B9D8F5;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .coach-load-panel h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .coach-load-panel p {
+      margin: 0 0 12px;
+      color: #334155;
+    }
+
+    .coach-load-panel .button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .coach-load-status {
+      margin-top: 10px;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    [hidden] { display: none !important; }
+
     iframe {
       display: block;
       width: 100%;
@@ -392,7 +423,7 @@
 
         <div class="button-row">
           <a class="button blue" href="#coach">Start the Interactive Coach</a>
-          <a class="button white" href="https://www.playlab.ai/project/cmtdnwhfx01bkm30wf1vbujle">
+          <a class="button white" href="https://www.playlab.ai/project/cmtdnwhfx01bkm30wf1vbujle" target="_blank" rel="noopener noreferrer">
             Open the Coach on PlayLab
           </a>
           <a class="button white" href="smart-goal-help.html#goal-check">
@@ -416,7 +447,7 @@
       When you finish, review the draft with your team, make any changes you need,
       and copy and paste your final responses into the BTB Portal.
       <div class="button-row">
-        <a class="button white" href="https://btb-portal.ercdata.com/actionplanmanager" target="_blank" rel="noopener">
+        <a class="button white" href="https://btb-portal.ercdata.com/actionplanmanager" target="_blank" rel="noopener noreferrer">
           Open the BTB Action Plan Manager
         </a>
       </div>
@@ -424,27 +455,41 @@
 
     <aside class="privacy-note">
       <strong>Protect privacy:</strong> Use program-level information. Do not enter student names,
-      confidential employee information, or other sensitive personal information into the coach.
+      confidential employee information, medical information, or other sensitive personal information into the coach.
+      The PlayLab coach is not loaded until you choose to load it below.
     </aside>
 
     <section class="embed-section" id="coach" aria-labelledby="coach-heading">
       <h2 id="coach-heading">Start the interactive coach</h2>
-      <p>Answer the questions below at your own pace.</p>
+      <p>
+        The coach is provided by PlayLab. It will not connect to PlayLab until you choose
+        <strong>Load the PlayLab Coach</strong> below.
+      </p>
 
-      <div class="embed-shell">
-        <iframe
-          src="https://www.playlab.ai/embedded/cmtdnwhfx01bkm30wf1vbujle"
-          title="STAR SMART Action Plan Coach"
-          height="700"
-          loading="lazy"
-          allow="clipboard-write">
-        </iframe>
+      <div class="coach-load-panel" id="coach-load-panel">
+        <h3>Before you load the coach</h3>
+        <p>
+          Loading the coach connects your browser to PlayLab. PlayLab may receive standard technical
+          information such as your IP address, device/browser information, and usage data. Anything you
+          type into the coach is processed through PlayLab and may be visible to the app creator or other
+          authorized users with access to the STAR PlayLab space.
+        </p>
+        <p>
+          Use program-level information only. Do not enter student names, student IDs, grades,
+          confidential employee information, medical information, or other sensitive personal information.
+        </p>
+        <button class="button blue" id="load-coach" type="button" aria-controls="coach-frame-container">
+          Load the PlayLab Coach
+        </button>
+        <p class="coach-load-status" id="coach-load-status" role="status" aria-live="polite"></p>
       </div>
+
+      <div class="embed-shell" id="coach-frame-container" hidden></div>
 
       <div class="fallback">
         <p>
-          <strong>Coach not loading?</strong>
-          <a href="https://www.playlab.ai/project/cmtdnwhfx01bkm30wf1vbujle">Open the STAR SMART Action Plan Coach directly in PlayLab</a>.
+          <strong>Prefer to open PlayLab separately?</strong>
+          <a href="https://www.playlab.ai/project/cmtdnwhfx01bkm30wf1vbujle" target="_blank" rel="noopener noreferrer">Open the STAR SMART Action Plan Coach directly in PlayLab</a>.
         </p>
       </div>
     </section>
@@ -458,7 +503,7 @@
         <strong>You must be signed in to the BTB Portal for the direct link to work.</strong>
       </p>
       <div class="button-row">
-        <a class="button blue" href="https://btb-portal.ercdata.com/actionplanmanager" target="_blank" rel="noopener">
+        <a class="button blue" href="https://btb-portal.ercdata.com/actionplanmanager" target="_blank" rel="noopener noreferrer">
           Open the BTB Action Plan Manager
         </a>
         <a class="button white" href="fall-action-plan.html">
@@ -481,5 +526,33 @@
       </p>
     </div>
   </footer>
+  <script>
+    (() => {
+      const loadButton = document.getElementById("load-coach");
+      const frameContainer = document.getElementById("coach-frame-container");
+      const status = document.getElementById("coach-load-status");
+
+      if (!loadButton || !frameContainer || !status) return;
+
+      loadButton.addEventListener("click", () => {
+        if (frameContainer.querySelector("iframe")) return;
+
+        const frame = document.createElement("iframe");
+        frame.src = "https://www.playlab.ai/embedded/cmtdnwhfx01bkm30wf1vbujle";
+        frame.title = "STAR SMART Action Plan Coach";
+        frame.height = "700";
+        frame.loading = "eager";
+        frame.referrerPolicy = "no-referrer";
+        frame.setAttribute("allow", "clipboard-write");
+
+        frameContainer.appendChild(frame);
+        frameContainer.hidden = false;
+        loadButton.disabled = true;
+        loadButton.textContent = "PlayLab Coach Loaded";
+        status.textContent = "The PlayLab coach is now loaded below.";
+      });
+    })();
+  </script>
+
 </body>
 </html>
